@@ -53,7 +53,12 @@ def contar_subcadenas_y_indices(cadena, subcadena):
 
 # Ejercicio 9. Crea una función que encuentre todas las palabras de un texto que
 # empiezan y acaban por una misma subcadena dada
-
+def encontrar_palabras(cadena:str, subcadena:str):
+    contador=0
+    for subcaden in cadena.split(" "):
+        if subcaden.startswith(subcadena) and subcaden.endswith(subcadena):
+                contador+=1
+    return contador
 
 
 # Ejercicio 10. Crea una función que reciba como parámetro un número entero y que
@@ -97,13 +102,15 @@ print("Ejercicio 7: ")
 print("La cantidad es:",contar_subcadenas("Hola mundo", "o"))
 print("--------------------------------------------------------")
 print("Ejercicio 8: ")
-print("La cantidad es:",contar_subcadenas_y_indices("Ta vida es bella", "l"))
+print("La cantidad es:",contar_subcadenas_y_indices("Ta vida es bella", "a"))
 print("--------------------------------------------------------")
 print("Ejercicio 9: ")
-print("La cantidad es:",encontrar_palabras("Ta vida es bella", "l"))
+print("La cantidad es:",encontrar_palabras("Ta vidavi es villavi", "vi"))
 print("--------------------------------------------------------")
 print("Ejercicio 10: ")
 tabla_multiplicar(12)
+print("--------------------------------------------------------")
+print("")
 
 
 
