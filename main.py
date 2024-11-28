@@ -176,6 +176,10 @@ def calculaconpipo():
 print("Calcula con PIPO")
 calculaconpipo()
 
+print("--------------------------------------------------------")
+print("Ahorcado")
+
+
 
 
 
