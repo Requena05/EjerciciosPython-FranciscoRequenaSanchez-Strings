@@ -1,4 +1,5 @@
- # Ejercicio 1 Crea una función que dada una cadena y una letra cuente cuantas veces aparece dicha letra
+from random import \
+    random  # Ejercicio 1 Crea una función que dada una cadena y una letra cuente cuantas veces aparece dicha letra
 def contar_letras(cadena, letra):
      return cadena.count(letra)
 
@@ -110,7 +111,72 @@ print("--------------------------------------------------------")
 print("Ejercicio 10: ")
 tabla_multiplicar(12)
 print("--------------------------------------------------------")
-print("")
+
+def calculaconpipo():
+    print("Dime que quieres hacer: ")
+    print("     (1) aprender las tablas de multiplicar")
+    print("     (2) practicar las tablas de multiplicar")
+    print("     (3) salir ")
+    opcion = input()
+    # el codigo tiene que repetirse hasta que se introduzca un tres
+    while opcion != "3":
+        if opcion == 0:
+            print("Dime que quieres hacer: ")
+            print("     (1) aprender las tablas de multiplicar")
+            print("     (2) practicar las tablas de multiplicar")
+            print("     (3) salir ")
+            opcion = input()
+        if opcion == "1":
+            print("¿Qué tabla quieres aprender?")
+            tabla = input()
+            tabla_multiplicar(int(tabla))
+            opcion = 0
+        elif opcion == "2":
+            acierto = 0
+            falla = 0
+            print("Muy bien, dime las tablas de multiplicar que quieres practicar: ")
+            print("Separa el numero de la tabla con '-' , e.g: 1-5-7: ")
+            tablas = input()
+            # mete los numeros en una lista
+            tablas_multi = []
+            for tabla in tablas.split("-"):
+                tablas_multi.append(int(tabla))
+
+            print("Muy bien, ahora dime cuantos intentos quieres tener: ")
+            intentos = int(input())
+            print("LETS GOOOO, BOYYYYY:")
+            for num_intento in range(intentos):
+                num_random = int(random() * 10)
+                # tabla_random tiene que ser int
+                tabla_random = int(random() * (len(tablas_multi) - 1))
+                respuesta_correcta = num_random * tablas_multi[tabla_random]
+                print(num_random, "x", tablas_multi[tabla_random], "=")
+                respuesta_usuario = int(input())
+                if respuesta_usuario == respuesta_correcta:
+                    print("YES!")
+                    acierto = acierto + 1
+                else:
+                    print("Error! ", num_random, "x", tabla_random, "=", respuesta_correcta, "y no", respuesta_usuario)
+                    falla = falla + 1
+
+            print("Has acertado ", acierto, " y has fallado ", falla, " de un total intentos: ", intentos,
+                  " lo que hace una tasa de acierto del ", ((acierto / intentos) * 100), "%")
+            print(("Pulse cualquier tecla para continuar..."))
+            continuar = input()
+            acierto = 0
+            falla = 0
+            # El codigo tiene que volver al principio
+            opcion = 0
+        elif opcion == "3":
+            print("Adios")
+            break
+        else:
+            print("No has elegido una opcion correcta")
+
+print("Calcula con PIPO")
+calculaconpipo()
+
+
 
 
 
